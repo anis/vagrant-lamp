@@ -10,7 +10,6 @@ This configuration was tested on the following environment:
 * Windows 8.1 (x64)
 * [Vagrant 1.7.2 (x64)][1]
 * [Virtualbox 4.3.20 r96997 (x86)][2]
-* [Virtualbox guest additions 4.3.20][3]
 
 ## Mandatory
 You will ___definitely___ need:
@@ -20,7 +19,6 @@ You will ___definitely___ need:
 First of all, make sure you installed all of the requirements:
 * [Virtualbox][2]
 * [Vagrant][1] (also make sure vagrant binary folder is in your PATH)
-* [The Vagrant plugin vbguest][3]
 
 This being done, clone this repository in the folder of your choice:
 
@@ -43,4 +41,3 @@ $ vagrant@192.168.19.89's password: vagrant
 
 [1]: http://www.vagrantup.com/downloads.html
 [2]: https://www.virtualbox.org/wiki/Downloads
-[3]: https://github.com/dotless-de/vagrant-vbguest

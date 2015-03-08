@@ -18,11 +18,26 @@ MACHINE_CPUS   = 2
 # -- Network
 NETWORK_IP = "192.168.19.89"
 
-
 # ======================================================================
 # ~~ Step back, you fool, and don't change these
 # ======================================================================
 
+# -- Plugins
+need_restart = false
+
+required_plugins = %w( vagrant-vbguest )
+required_plugins.each do |plugin|
+    if not(Vagrant.has_plugin? plugin)
+        system("vagrant plugin install #{plugin}")
+        need_restart = true
+    end
+end
+
+if need_restart
+    exec("vagrant #{ARGV.join(" ")}")
+end
+
+# -- Guest machine
 Vagrant.configure(VAGRANT_VERSION) do |config|
     # -- Box
     config.vm.box = OS_BOX
