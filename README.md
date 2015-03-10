@@ -8,7 +8,7 @@ This repository is essentially used to save of my own development environment bu
 ## Tested on
 This configuration was tested on the following environment:
 * Windows 8.1 (x64)
-* [Vagrant 1.7.2 (x64)][1]
+* [Vagrant 1.7.2][1]
 * [Virtualbox 4.3.20 r96997 (x86)][2]
 
 ## Mandatory
