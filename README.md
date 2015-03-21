@@ -3,42 +3,32 @@ Vagrant-lamp provides you a [Vagrant][3] configuration for setting up a clean we
 
 This environment provides you, by default:
 * a private network
+* a running puppet and librarian-puppet
 
 This repository is essentially used to save my own development environment but feel free to use it as a start for yours.
 
 ## Requirements
-### Tested on
-This configuration was tested on the following environment:
-* Windows 8.1 (x64)
-* [Vagrant 1.7.2][1]
-* [Virtualbox 4.3.20 r96997][2]
-
-### Mandatory
-You ___will___ need:
-* Virtualbox as your virtual provider, if you want to customize your guest machine (*memory and cpus*)
+* [Vagrant 1.7][1] or higher
+* [Virtualbox 4.3][2] or higher
 
 ## Usage
-First of all, make sure you installed all of the requirements:
-* [Virtualbox][2]
-* [Vagrant][1] (also make sure vagrant binary folder is in your PATH)
-
-This being done, clone this repository in the folder of your choice:
+Clone this repository in the folder of your choice:
 
 ```sh
 $ git clone https://github.com/anis/vagrant-lamp.git
 ```
 
-Next, customize the configuration to match up your needs:
+You may customize the following files to satisfy your needs:
 * Vagrantfile
-* puppet/Puppetfile
+* [puppet/Puppetfile][5]
 
-Finally, you may gently wake your guest up:
+Finally, gently wake your guest up:
 
 ```sh
 $ vagrant up
 ```
 
-That's all. You can establish an SSH connection to your guest machine and start working:
+That's all. Your machine is up and ready to work!
 
 ```sh
 $ ssh vagrant@192.168.19.89
@@ -62,3 +52,4 @@ Your Ruby is not using the appropriate encoding. You have two solutions (both ug
 [2]: https://www.virtualbox.org/wiki/Downloads
 [3]: http://www.vagrantup.com
 [4]: http://www.eightforums.com/tutorials/42041-hyper-v-enable-disable-windows-8-a.html
+[5]: https://github.com/rodjek/librarian-puppet
