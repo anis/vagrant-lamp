@@ -45,6 +45,20 @@ $ ssh vagrant@192.168.19.89
 $ vagrant@192.168.19.89's password: vagrant
 ```
 
+## Known issues
+* **Vagrant won't get my box up and Virtualbox tells me 'VT-X is not available'**
+
+You might have Hyper-V activated, a Windows feature that prevents your machine to boot with two processors or more. You have two potential solutions:
+* reduce the number of CPUs assigned to your machine to 1 (in Vagrantfile)
+* deactivate Hyper-V: see [this tutorial][4]
+
+* **Ruby raises an exception : ERROR: While executing gem ... (Encoding::UndefinedConversionError)**
+
+Your Ruby is not using the appropriate encoding. You have two solutions (both ugly):
+* type `chcp 1252` in Windows command prompt. You will have to do that each time you open a command prompt.
+* locate `registry.rb` in your local ruby install and replace `#LOCALE = Encoding.find(Encoding.locale_charmap)` by `LOCALE = Encoding::UTF_8`
+
 [1]: http://www.vagrantup.com/downloads.html
 [2]: https://www.virtualbox.org/wiki/Downloads
 [3]: http://www.vagrantup.com
+[4]: http://www.eightforums.com/tutorials/42041-hyper-v-enable-disable-windows-8-a.html
