@@ -1,4 +1,4 @@
-# -*- mode: ruby -*-
+ # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
 # ======================================================================
@@ -17,6 +17,11 @@ MACHINE_CPUS   = 2
 
 # -- Network
 NETWORK_IP = "192.168.19.89"
+
+# -- Puppet
+PUPPET_VERSION = :latest
+LIBRARIAN_PUPPET_VERSION = :latest
+PUPPETFILE_DIR = "puppet"
 
 # ======================================================================
 # ~~ Step back, you fool, and don't change these
@@ -52,10 +57,10 @@ Vagrant.configure(VAGRANT_VERSION) do |config|
 
     # -- Provisioning
         # - install puppet and its modules
-    config.puppet_install.puppet_version = :latest
+    config.puppet_install.puppet_version = PUPPET_VERSION
 
-    config.puppet_modules.librarian_version = :latest
-    config.puppet_modules.puppetfile_dir = "puppet"
+    config.puppet_modules.librarian_version = LIBRARIAN_PUPPET_VERSION
+    config.puppet_modules.puppetfile_dir = PUPPETFILE_DIR
 
         # - setup everything else via puppet
     config.vm.provision "puppet" do |puppet|
