@@ -25,7 +25,7 @@ NETWORK_IP = "192.168.19.89"
 # -- Plugins
 need_restart = false
 
-required_plugins = %w( vagrant-vbguest )
+required_plugins = %w( vagrant-vbguest vagrant-puppet-install vagrant-puppet-modules )
 required_plugins.each do |plugin|
     if not(Vagrant.has_plugin? plugin)
         system("vagrant plugin install #{plugin}")
@@ -49,4 +49,17 @@ Vagrant.configure(VAGRANT_VERSION) do |config|
     end
 
     config.vm.network "private_network", ip: NETWORK_IP
+
+    # -- Provisioning
+        # - install puppet and its modules
+    config.puppet_install.puppet_version = :latest
+
+    config.puppet_modules.librarian_version = :latest
+    config.puppet_modules.puppetfile_dir = "puppet"
+
+        # - setup everything else via puppet
+    config.vm.provision "puppet" do |puppet|
+        puppet.manifests_path = "puppet/manifests"
+        puppet.manifest_file  = "default.pp"
+    end
 end
