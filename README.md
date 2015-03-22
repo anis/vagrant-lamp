@@ -1,5 +1,5 @@
-# vagrant-lamp
-Vagrant-lamp provides you a [Vagrant][3] configuration for setting up a clean web development environment on a Windows machine (although it would probably work on any other host OS).
+# vagrant-web
+Vagrant-web provides you a [Vagrant][3] configuration for setting up a clean web development environment on a Windows machine (although it would probably work on any other host OS).
 
 By default, you'll get:
 * a samba share: most performant and symlinks-problem-free way to share folders with your guest machine
@@ -17,7 +17,7 @@ Please note this repository is essentially used to save my own development envir
 Clone this repository in the folder of your choice:
 
 ```sh
-$ git clone https://github.com/anis/vagrant-lamp.git
+$ git clone https://github.com/anis/vagrant-web.git
 ```
 
 Gently wake your guest up:
