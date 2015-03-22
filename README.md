@@ -20,7 +20,9 @@ Clone this repository in the folder of your choice:
 $ git clone https://github.com/anis/vagrant-web.git
 ```
 
-Gently wake your guest up:
+Create a configuration file for Puppet provisioning. For a basic installation, just create a file `puppet/manifests/config.pp` copied from `puppet/manifests/config.pp.dist`.
+
+Now you can gently wake your guest up:
 
 ```sh
 $ vagrant up
