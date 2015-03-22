@@ -2,7 +2,7 @@
 Vagrant-web provides you a [Vagrant][3] configuration for setting up a clean web development environment on a Windows machine (although it would probably work on any other host OS).
 
 By default, you'll get:
-* a samba share: most performant and symlinks-problem-free way to share folders with your guest machine
+* a samba share: most performant way to share folders with your guest machine (and symlinks-problem-free)
 * a private network
 * a running [Puppet][6] provisioning, coupled with [Librarian-Puppet][5], for an easy customization
 
@@ -13,7 +13,7 @@ Please note this repository is essentially used to save my own development envir
 * [Virtualbox 4.3][2] or higher
 
 ## Usage
-### Basic install
+### Basic installation
 Clone this repository in the folder of your choice:
 
 ```sh
@@ -26,12 +26,12 @@ Gently wake your guest up:
 $ vagrant up
 ```
 
-Connect a network drive with the following settings:
+To access to the files of your guest from your host, connect a network drive with the following settings:
 * destination: `\\192.168.19.89\vagrant`
 * username: `root`
 * password: `samba`
 
-Well, that's all you really need. Your machine is up and ready to work! You can establish an ssh connection with the following credentials:
+To connect to your guest, establish an ssh connection:
 * username: `vagrant`
 * password: `vagrant`
 
@@ -39,6 +39,8 @@ Well, that's all you really need. Your machine is up and ready to work! You can 
 $ ssh vagrant@192.168.19.89
 $ vagrant@192.168.19.89's password: vagrant
 ```
+
+That's all, you can start configuring your machine the way you want.
 
 ### Customization
 If you feel like customizing your machine, a few configuration entries are already waiting for you:
@@ -60,7 +62,7 @@ You might have Hyper-V activated, a Windows feature that prevents your machine t
 
 Your Ruby is not using the appropriate encoding. You have two solutions (both ugly):
 * type `chcp 1252` in Windows command prompt. You will have to do that each time you open a command prompt.
-* locate `registry.rb` in your local ruby install and replace `#LOCALE = Encoding.find(Encoding.locale_charmap)` by `LOCALE = Encoding::UTF_8`
+* locate `registry.rb` in your local ruby install and replace `LOCALE = Encoding.find(Encoding.locale_charmap)` by `LOCALE = Encoding::UTF_8`
 
 [1]: http://www.vagrantup.com/downloads.html
 [2]: https://www.virtualbox.org/wiki/Downloads
