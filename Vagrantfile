@@ -65,6 +65,6 @@ Vagrant.configure(VAGRANT_VERSION) do |config|
         # - setup everything else via puppet
     config.vm.provision "puppet" do |puppet|
         puppet.manifests_path = "puppet/manifests"
-        puppet.manifest_file  = "default.pp"
+        puppet.manifest_file  = "."
     end
 end

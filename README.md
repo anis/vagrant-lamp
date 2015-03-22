@@ -1,39 +1,53 @@
 # vagrant-lamp
-Vagrant-lamp provides you a [Vagrant][3] configuration for setting up a clean web development environment on a Windows machine.
+Vagrant-lamp provides you a [Vagrant][3] configuration for setting up a clean web development environment on a Windows machine (although it would probably work on any other host OS).
 
-This environment provides you, by default:
+By default, you'll get:
+* a samba share: most performant and symlinks-problem-free way to share folders with your guest machine
 * a private network
-* a running puppet and librarian-puppet
+* a running [Puppet][6] provisioning, coupled with [Librarian-Puppet][5], for an easy customization
 
-This repository is essentially used to save my own development environment but feel free to use it as a start for yours.
+Please note this repository is essentially used to save my own development environment but feel free to use it as a start for yours.
 
 ## Requirements
 * [Vagrant 1.7][1] or higher
 * [Virtualbox 4.3][2] or higher
 
 ## Usage
+### Basic install
 Clone this repository in the folder of your choice:
 
 ```sh
 $ git clone https://github.com/anis/vagrant-lamp.git
 ```
 
-You may customize the following files to satisfy your needs:
-* Vagrantfile
-* [puppet/Puppetfile][5]
-
-Finally, gently wake your guest up:
+Gently wake your guest up:
 
 ```sh
 $ vagrant up
 ```
 
-That's all. Your machine is up and ready to work!
+Connect a network drive with the following settings:
+* destination: `\\192.168.19.89\vagrant`
+* username: `root`
+* password: `samba`
+
+Well, that's all you really need. Your machine is up and ready to work! You can establish an ssh connection with the following credentials:
+* username: `vagrant`
+* password: `vagrant`
 
 ```sh
 $ ssh vagrant@192.168.19.89
 $ vagrant@192.168.19.89's password: vagrant
 ```
+
+### Customization
+If you feel like customizing your machine, a few configuration entries are already waiting for you:
+* in the top of `Vagrantfile` for:
+ * the network and hardware of the guest
+ * the version of Puppet and Librarian-Puppet
+* the whole [puppet/Puppetfile][5] if you need Puppet modules
+* `puppet/manifests/config.pp` for customizing the modules already installed
+* any file in `puppet/manifests` actually
 
 ## Known issues
 * **Vagrant won't get my box up and Virtualbox tells me 'VT-X is not available'**
@@ -53,3 +67,4 @@ Your Ruby is not using the appropriate encoding. You have two solutions (both ug
 [3]: http://www.vagrantup.com
 [4]: http://www.eightforums.com/tutorials/42041-hyper-v-enable-disable-windows-8-a.html
 [5]: https://github.com/rodjek/librarian-puppet
+[6]: https://docs.puppetlabs.com/learning/introduction.html
