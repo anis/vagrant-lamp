@@ -15,8 +15,6 @@ if $gitEmail != undef {
 
 # Configure the private key used to connect to Github.com
 if $githubSSHKey != undef {
-    notice("Configuring a private key for Github")
-
     file { '/home/vagrant/.ssh/github_rsa':
         ensure => file,
         content => $githubSSHKey
