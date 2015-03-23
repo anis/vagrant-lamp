@@ -76,7 +76,7 @@ In that case, you would want to get a look at how the Vagrant plugins we use wor
 
 ### Puppet
 This is where you can go crazy! Do whatever you want in the provisioning by:
-* installing Puppet modules via [puppet/Puppetfile][5]
+* installing Puppet modules via [puppet\Puppetfile][5]
 * writing your manifests in `puppet\manifests`
 
 ## Known issues
