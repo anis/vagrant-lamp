@@ -10,3 +10,13 @@ $sambaPassword = "samba"
 # $gitUser = "My name"
 # $gitEmail = "my@email.com"
 # $githubSSHKey = "myPrivateKey"
+
+# ======================================================================
+# ~~ Github projects
+# ======================================================================
+# $projects = {
+#     myProject => {
+#         name => "folderAndVhostName",
+#         url => "git@github.com:user/my-project.git"
+#     }
+# }

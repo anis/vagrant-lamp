@@ -3,3 +3,5 @@ forge "https://forgeapi.puppetlabs.com"
 mod 'thias-samba'
 mod 'puppetlabs-stdlib'
 mod 'puppetlabs-git'
+mod 'puppetlabs-vcsrepo'
+mod 'puppetlabs-apache'
