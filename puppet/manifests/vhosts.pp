@@ -7,12 +7,15 @@ define project($url) {
         ensure => present,
         provider => git,
         source => $url,
-        require => GithubConfig['root']
+        user => 'vagrant',
+        owner => 'vagrant'
     }
     ->
     apache::vhost { "$name.dev":
         port => 80,
-        docroot => "/home/vagrant/projects/$name"
+        docroot => "/home/vagrant/projects/$name",
+        docroot_owner => "vagrant",
+        docroot_group => "vagrant"
     }
     ->
     notify { "The vhost $name.dev has been created, make sure to update your hosts file": }

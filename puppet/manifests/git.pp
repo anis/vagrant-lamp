@@ -14,9 +14,11 @@ if $gitEmail != undef {
 }
 
 # Configure the private key used to connect to Github.com
-define githubConfig($path = $name) {
+define githubConfig($path = $name, $owner, $ownerGroup) {
     file { "$path/config":
-        ensure => file
+        ensure => file,
+        owner => "$owner",
+        group => "$ownerGroup"
     }
     ->
     file_line { "$path/config_github_host":
@@ -44,15 +46,15 @@ if $githubSSHKey != undef {
     file { '/home/vagrant/.ssh/github_rsa':
         ensure => file,
         content => $githubSSHKey,
-        mode => '0600'
+        mode => '0600',
+        owner => 'vagrant',
+        group => 'vagrant'
     }
 
     githubConfig { 'vagrant': 
         path => '/home/vagrant/.ssh',
-        require => File['/home/vagrant/.ssh/github_rsa']
-    }
-    githubConfig { 'root':
-        path => '/root/.ssh',
+        owner => 'vagrant',
+        ownerGroup => 'vagrant',
         require => File['/home/vagrant/.ssh/github_rsa']
     }
 }
