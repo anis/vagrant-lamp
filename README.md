@@ -4,7 +4,10 @@ Vagrant-web sets up a web-development environment on **Windows hosts**, via a De
 The default features of the box are:
 * a [samba share][9]: the most efficient way to share files with Windows hosts (_and symlink-problems free!_)
 * configuration of your git/github accounts
-* configuration of github repositories and their associated apache vhosts
+* automatic setup of projects based on:
+ * github: cloning repositories
+ * apache: creating vhosts pointing to the repository
+ * nodejs: already installed and operational
 
 The provisioning based on [Puppet][6] (_along with [Librarian-Puppet][5]_) lets you customize these, and even more, the way you want it!
 
