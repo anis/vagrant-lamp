@@ -91,7 +91,12 @@ To access that vhost from the host machine, just [edit your hosts file][14] and 
 192.168.19.89   folderAndVhostName.dev
 ```
 
-That's it, you can now start to work on your brand new project at `http://folderAndVhostName.dev`! :)
+If you feel like this is too much of a work to edit your hosts file for each project, you might prefer to use a more generic vhost local.dev which lets you access every project directory;
+```sh
+192.168.19.89   local.dev
+```
+
+That's it, you can now start to work on your brand new project at `http://folderAndVhostName.dev` or `http://local.dev/folderAndVhostName/`! :)
 
 ### Vagrantfile
 To make your customization easier, most common configuration entries are listed in the top of `Vagrantfile`, but you can go deeper if you know what you are doing.
