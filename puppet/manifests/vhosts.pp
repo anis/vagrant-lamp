@@ -11,7 +11,8 @@ define project($url) {
         provider => git,
         source => $url,
         user => 'vagrant',
-        owner => 'vagrant'
+        owner => 'vagrant',
+        require => GithubConfig['vagrant']
     }
     ->
     apache::vhost { "$name.dev":
