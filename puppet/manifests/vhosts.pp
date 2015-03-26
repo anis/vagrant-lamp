@@ -25,3 +25,10 @@ define project($url) {
 }
 
 create_resources(project, $projects)
+
+apache::vhost { "local.dev":
+    port => 80,
+    docroot => "/home/vagrant/projects",
+    docroot_owner => "vagrant",
+    docroot_group => "vagrant"
+}
