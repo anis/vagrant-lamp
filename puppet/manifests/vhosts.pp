@@ -19,7 +19,8 @@ define project($url) {
         port => 80,
         docroot => "/home/vagrant/projects/$name",
         docroot_owner => "vagrant",
-        docroot_group => "vagrant"
+        docroot_group => "vagrant",
+        notify        => Class['apache::service']
     }
     ->
     notify { "The vhost $name.dev has been created, make sure to update your hosts file": }
@@ -31,5 +32,6 @@ apache::vhost { "local.dev":
     port => 80,
     docroot => "/home/vagrant/projects",
     docroot_owner => "vagrant",
-    docroot_group => "vagrant"
+    docroot_group => "vagrant",
+    notify        => Class['apache::service']
 }
