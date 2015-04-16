@@ -1,9 +1,12 @@
 # We need a Apache, NodeJS and PHP installed
-class { 'apache': }
+class { 'apache':
+    mpm_module => "prefork"
+}
 class { 'nodejs':
     version => 'latest'
 }
 class { 'php': }
+-> class {'::apache::mod::php': }
 
 # Let's clone and create a vhost for each of our projects
 define project($url) {
