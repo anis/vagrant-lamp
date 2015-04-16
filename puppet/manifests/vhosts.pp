@@ -1,8 +1,9 @@
-# We need a basic apache server
+# We need a Apache, NodeJS and PHP installed
 class { 'apache': }
 class { 'nodejs':
     version => 'latest'
 }
+class { 'php': }
 
 # Let's clone and create a vhost for each of our projects
 define project($url) {
