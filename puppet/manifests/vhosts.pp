@@ -23,8 +23,6 @@ define project($url) {
         docroot_group => "vagrant",
         notify        => Class['apache::service']
     }
-    ->
-    notify { "The vhost $name.dev has been created, make sure to update your hosts file": }
 }
 
 create_resources(project, $projects)
