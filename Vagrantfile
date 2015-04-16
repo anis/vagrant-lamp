@@ -19,8 +19,8 @@ MACHINE_CPUS   = 2
 NETWORK_IP = "192.168.19.89"
 
 # -- Puppet
-PUPPET_VERSION = :latest
-LIBRARIAN_PUPPET_VERSION = :latest
+PUPPET_VERSION = "3.7.5"
+LIBRARIAN_PUPPET_VERSION = "2.1.0"
 PUPPETFILE_DIR = "puppet"
 
 # ======================================================================
