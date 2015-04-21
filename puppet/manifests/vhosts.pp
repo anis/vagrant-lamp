@@ -2,6 +2,8 @@
 class { 'apache':
     mpm_module => "prefork"
 }
+apache::mod { "rewrite": }
+
 class { 'nodejs':
     version => 'latest'
 }
@@ -24,7 +26,8 @@ define project($url) {
         docroot => "/home/vagrant/projects/$name",
         docroot_owner => "vagrant",
         docroot_group => "vagrant",
-        notify        => Class['apache::service']
+        notify        => Class['apache::service'],
+        override      => "All",
     }
 }
 
