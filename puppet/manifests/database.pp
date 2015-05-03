@@ -10,3 +10,10 @@ php::ini { "php_ini_mongo":
     ],
     require => Class["php"]
 }
+
+# MySQL
+include '::mysql::server'
+
+class {'mysql::bindings':
+    php_enable => true
+}

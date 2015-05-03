@@ -8,7 +8,8 @@ The default features of the box are:
  * github: cloning repositories
  * apache: creating vhosts pointing to the repository
  * nodejs: already installed and operational
-* pre-installed Apache, PHP, NodeJS and MongoDB
+ * mysql and mongodb: database systems already available
+* pre-installed Apache, PHP, NodeJS, Mysql and MongoDB
 
 The provisioning based on [Puppet][6] (_along with [Librarian-Puppet][5]_) lets you customize these, and even more, the way you want it!
 
