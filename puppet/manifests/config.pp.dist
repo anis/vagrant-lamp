@@ -16,7 +16,10 @@ $sambaPassword = "samba"
 # ======================================================================
 # $projects = {
 #     myProject => {
-#         name => "folderAndVhostName",
-#         url => "git@github.com:user/my-project.git"
+#         name       => "projectName",
+#         url        => "git@github.com:user/my-project.git",
+#         mainDomain => "mydomain",
+#         subDomain  => "aSubDomain",
+#         target     => "/my/target/directory"
 #     }
 # }

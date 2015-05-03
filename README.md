@@ -77,20 +77,23 @@ If you want to work on a Github repository, list it in your `config.pp`:
 ```ruby
 $projects = {
     myProject => {
-        name => "folderAndVhostName",
-        url => "git@github.com:user/my-project.git"
+        name       => "projectName",
+        url        => "git@github.com:user/my-project.git",
+        mainDomain => "domainName",
+        subDomain  => "subDomainName",
+        target     => "/my/target/directory"
     },
     ...
 }
 ```
 
 This will automatically:
-* clone your repository into `/home/vagrant/projects/folderAndVhostName` (_which can be reached from the samba share_) 
-* create an apache vhost "folderAndVhostName.dev" pointing to the root of the repository
+* clone your repository into `/home/vagrant/projects/projectName` (_which can be reached from the samba share_) 
+* create an apache vhost "subDomainName.dev.domainName.com" pointing to the root of the repository
 
 To access that vhost from the host machine, just [edit your hosts file][14] and add the following line:
 ```sh
-192.168.19.89   folderAndVhostName.dev
+192.168.19.89   subDomainName.dev.domainName.com
 ```
 
 If you feel like this is too much of a work to edit your hosts file for each project, you might prefer to use a more generic vhost local.dev which lets you access every project directory;
@@ -98,7 +101,14 @@ If you feel like this is too much of a work to edit your hosts file for each pro
 192.168.19.89   local.dev
 ```
 
-That's it, you can now start to work on your brand new project at `http://folderAndVhostName.dev` or `http://local.dev/folderAndVhostName/`! :)
+That's it, you can now start to work on your brand new project at `http://subDomainName.dev.domainName.com` or `http://local.dev/projectName/`! :)
+
+Please note that the parameters "mainDomain", "subDomain", and "target" are optional:
+* mainDomain defaults to the projectName
+* subDomain defaults to undef
+* target defaults to "/public"
+
+With those default values, our project would be accessible at "dev.projectName.com".
 
 ### Vagrantfile
 To make your customization easier, most common configuration entries are listed in the top of `Vagrantfile`, but you can go deeper if you know what you are doing.
